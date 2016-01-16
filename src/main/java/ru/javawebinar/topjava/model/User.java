@@ -2,11 +2,11 @@ package ru.javawebinar.topjava.model;
 
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.Cache;
-import ru.javawebinar.topjava.util.UserMealsUtil;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+import ru.javawebinar.topjava.util.UserMealsUtil;
 
 import javax.persistence.*;
 import javax.persistence.CascadeType;
@@ -137,6 +137,10 @@ public class User extends NamedEntity {
 
     public List<UserMeal> getMeals() {
         return meals;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = EnumSet.copyOf(roles);
     }
 
     @Override
